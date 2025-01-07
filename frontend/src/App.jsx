@@ -23,7 +23,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>React and Django Test</h1>
+      <h1>React and Django Test for biz bloom</h1>
       {data ? (
         <p>{data.message}</p> // Display the message from Django
       ) : (
