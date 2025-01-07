@@ -31,7 +31,7 @@ SECRET_KEY = env("SECRET_KEY")
 # TODO: check is false in production
 DEBUG = env("DEBUG")
 
-# TODO: update ALLOWED_HOSTS to have details for Amazon EC2
+# TODO: update ALLOWED_HOSTS to have details for Render
 ALLOWED_HOSTS = []
 
 
@@ -53,6 +53,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    # For whitenoise to handle static files
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     # For cross-origin requests
     "corsheaders.middleware.CorsMiddleware",
@@ -147,6 +149,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = "static/"
+
+# Added from Render
+# This production code might break development mode, so we check whether we're in DEBUG mode
+if not DEBUG:
+    # Tell Django to copy static assets into a path called `staticfiles` (this is specific to Render)
+    STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+    # Enable the WhiteNoise storage backend, which compresses static files to reduce disk use
+    # and renames the files with unique names for each version to support long-term caching
+    STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
