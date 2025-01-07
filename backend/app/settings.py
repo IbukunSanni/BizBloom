@@ -28,6 +28,7 @@ environ.Env.read_env(BASE_DIR / ".env")
 SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# TODO: check is false in production
 DEBUG = env("DEBUG")
 
 # TODO: update ALLOWED_HOSTS to have details for Amazon EC2
@@ -65,6 +66,7 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  # Vite dev server
     "http://127.0.0.1:5173",
+    "https://bizbloom.vercel.app",
 ]
 
 ROOT_URLCONF = "app.urls"
