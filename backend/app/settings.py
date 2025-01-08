@@ -32,7 +32,7 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = env("DEBUG")
 
 # TODO: update ALLOWED_HOSTS to have details for Render
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["bizbloom.onrender.com"]
 
 
 # Application definition
