@@ -15,3 +15,7 @@ def test_db_connection(request):
 def test_view(request):
     data = {"message": "Blizbloom in business yall!"}
     return JsonResponse(data)
+
+
+def home(request):
+    return render(request, "home.html")

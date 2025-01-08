@@ -23,4 +23,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("test-db/", test_db_connection),
     path("api/test/", test_view),
+    path("", views.home, name="home"),
 ]
