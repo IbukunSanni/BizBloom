@@ -1,5 +1,6 @@
 from django.http import JsonResponse
 from django.db import connection
+from django.shortcuts import render
 
 
 def test_db_connection(request):
@@ -17,5 +18,5 @@ def test_view(request):
     return JsonResponse(data)
 
 
-def home(request):
+def show_home(request):
     return render(request, "home.html")

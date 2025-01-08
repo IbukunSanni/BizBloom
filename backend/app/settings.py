@@ -33,7 +33,7 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = env("DEBUG")
 
 # TODO: update ALLOWED_HOSTS to have details for Render
-ALLOWED_HOSTS = ["bizbloom.onrender.com"]
+ALLOWED_HOSTS = ["bizbloom.onrender.com", "127.0.0.1"]
 
 
 # Application definition
@@ -74,10 +74,12 @@ CORS_ALLOWED_ORIGINS = [
 
 ROOT_URLCONF = "app.urls"
 
+TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
+
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [[BASE_DIR / "templates"]],
+        "DIRS": [TEMPLATE_DIR],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
