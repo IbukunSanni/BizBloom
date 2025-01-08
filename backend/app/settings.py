@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 
 import environ
+import os
 
 env = environ.Env(DEBUG=(bool, False))
 
@@ -149,6 +150,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = "static/"
+
 
 # Added from Render
 # This production code might break development mode, so we check whether we're in DEBUG mode
