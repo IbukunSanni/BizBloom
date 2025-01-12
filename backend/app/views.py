@@ -1,6 +1,9 @@
 from django.http import JsonResponse
 from django.db import connection
 from django.shortcuts import render
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 def test_db_connection(request):
@@ -10,6 +13,7 @@ def test_db_connection(request):
             result = cursor.fetchone()
         return JsonResponse({"success": True, "result": result})
     except Exception as e:
+        logger.error(f"Database connection test failed: {str(e)}")
         return JsonResponse({"success": False, "error": str(e)})
 
 

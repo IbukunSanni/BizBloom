@@ -13,7 +13,7 @@ function App() {
     // Make an Axios request to the Django backend
     
     const backendUrl = import.meta.env.VITE_APP_BACKEND_URL;
-    console.log(`$This is the backendurl: ${backendUrl}`)
+    // console.log(`$This is the backendurl: ${backendUrl}`)
     axios
       .get(`${backendUrl}api/test/`)
       .then((response) => {
