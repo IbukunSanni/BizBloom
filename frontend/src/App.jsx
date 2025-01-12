@@ -11,10 +11,14 @@ function App() {
 
   useEffect(() => {
     // Make an Axios request to the Django backend
+    
+    const backendUrl = import.meta.env.VITE_APP_BACKEND_URL;
+    console.log(`$This is the backendurl: ${backendUrl}`)
     axios
-      .get("http://127.0.0.1:8000/api/test/")
+      .get(`${backendUrl}api/test/`)
       .then((response) => {
         setData(response.data); // Update state with data from Django
+        console.log(response.data)
       })
       .catch((error) => {
         console.error("There was an error fetching the data!", error);

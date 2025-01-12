@@ -14,7 +14,7 @@ def test_db_connection(request):
 
 
 def test_view(request):
-    data = {"message": "Blizbloom in business yall!"}
+    data = {"message": "Bizbloom in business yall!"}
     return JsonResponse(data)
 
 
