@@ -1,5 +1,6 @@
 from django.core.management.base import BaseCommand
 from django.apps import apps
+from django.core.management.utils import get_random_secret_key
 
 
 def list_model_tables():
@@ -20,6 +21,7 @@ class Command(BaseCommand):
         self.stdout.write("Running my script...")
         # Your custom script logic here
         # result = my_custom_function()
-        list_model_tables()
-        print("Out here")
+        signing_key = get_random_secret_key()
+        print(signing_key)
+        print("End of script run")
         # self.stdout.write(f"Script output: {result}")
