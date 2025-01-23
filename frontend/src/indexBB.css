@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+* {
+  /* TODO: remove before pushing */
+  /* border: 1px solid black; */
+  /* TODO: correct for responsiveness */
+  max-width: 26rem;
+}
+
+html {
+  scroll-behavior: smooth !important;
+}
+
+/* Specify for span so as to make it stick */
+span {
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+:root {
+  --color-bg: #1f1f38;
+  --color-bg-variant: #28284f;
+  --color-primary: #007bff;
+  /* Blue */
+  --color-primary-variant: #0056b3;
+  /* Darker Blue */
+  --color-accent: #ff4500;
+  /* Orange-Red */
+  --color-accent-variant: #cc3700;
+  /* Darker Orange-Red */
+  --color-white: #fff;
+  --color-light: #f8f8f8;
+  /* Light Gray */
+
+  --transition: all 400ms ease;
+
+  --container-width-lg: 75%;
+  --container-width-md: 86%;
+  --container-width-sm: 90%;
+}
+
+* {}
+
+/* Frame for mobile */
+.outerframe {
+  @apply flex w-[25.75rem] flex-col justify-center
+}
+/*mobile body*/
+
+.mobilebody{
+  @apply flex flex-col pt-[1.5rem] pb-12 items-center gap-[1.5rem] shrink-0 self-stretch
+
+}
+
+.productlabel {
+  @apply font-sans text-[0.75rem]  font-[600] leading-[1.123rem]
+}
+

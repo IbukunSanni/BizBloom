@@ -10,7 +10,6 @@ const Nav = () => {
   const dispatch = useDispatch();
 
   const { user } = useSelector((state) => state.auth);
-  
 
   const handleLogout = () => {
     dispatch(logout());
