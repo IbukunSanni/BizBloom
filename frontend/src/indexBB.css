@@ -9,8 +9,9 @@
 * {
   /* TODO: remove before pushing */
   /* border: 1px solid black; */
-  /* TODO: correct for responsiveness */
-  max-width: 26rem;
+  /* align-items: center; */
+  /* @apply max-w-[26px] min-h-screen flex items-center justify-center m-auto */
+  @apply items-center max-w-[26rem] mx-auto
 }
 
 html {
@@ -49,7 +50,7 @@ span {
 
 /* Frame for mobile */
 .outerframe {
-  @apply flex w-[25.75rem] flex-col justify-center
+  @apply flex flex-col justify-center
 }
 /*mobile body*/
 
@@ -59,6 +60,13 @@ span {
 }
 
 .productlabel {
-  @apply font-sans text-[0.75rem]  font-[600] leading-[1.123rem]
+  @apply font-sans text-[0.75rem]  font-[600] leading-[1.125rem]
 }
 
+.productbody {
+  @apply font-sans text-[1.125rem] font-[700] leading-[1.6875rem]
+}
+
+.producttitle {
+  @apply font-sans text-[1.625rem] font-[700] leading-[2.4375rem]
+}

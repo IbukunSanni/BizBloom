@@ -1,6 +1,6 @@
 // import React from 'react'
 
-const CompleteProfile01 = () => {
+const CompleteProfile02 = () => {
   return (
     <frame className="flex w-[25.75rem]  flex-col justify-center">
       <body className="mobilebody">
@@ -14,50 +14,16 @@ const CompleteProfile01 = () => {
 
             <div className="flex flex-row gap-4">
               <div className="w-3 h-3 rounded-full bg-[#6E00AD]"></div>
-              <div className="w-3 h-3 rounded-full bg-[#CFCFCF]"></div>
+              <div className="w-3 h-3 rounded-full bg-[#6E00AD]"></div>
               <div className="w-3 h-3 rounded-full bg-[#CFCFCF]"></div>
               <div className="w-3 h-3 rounded-full bg-[#CFCFCF]"></div>
               <div className="w-3 h-3 rounded-full bg-[#CFCFCF]"></div>
             </div>
-            
+
             <div>
               <img src="" alt="" />
               <img src="" alt="" />
               <img src="" alt="" />
-            </div>
-
-            {/* Profile Section  */}
-            <div className="flex flex-col items-center gap-4 self-stretch">
-              {/* Profile Title  */}
-              <div className="flex flex-col py-[0.5rem] px-[2.25rem] justify-center items-center gap-[0.5rem] self-stretch">
-                <div className="gap-2">
-                  <p className="text-[#1E1E1E] text-center font-sans text-[1.625rem] font-bold leading-[2.4375rem]">
-                    Complete Your Profile
-                  </p>
-
-                  <p className="text-[#1E1E1E]  text-center  font-sans text-[1.125rem] leading-[2.25rem] self-stretch">
-                    Help us personalize your entrepreneurial journey
-                  </p>
-                </div>
-              </div>
-              {/* Profile Image  */}
-              <div className="flex flex-col items-center justify-center gap-[0.5rem]">
-                <div className="flex items-center justify-center w-40 h-40 bg-[#E4E4E4] rounded-full">
-                  <img
-                    className=""
-                    src="/images/icons/Camera.png"
-                    alt="Camera"
-                  />
-                </div>
-
-                {/* <div className="flex items-center justify-center w-32 h-32 bg-blue-500 rounded-full">
-                  <div className="w-16 h-16 bg-white rounded-full"></div>
-                </div> */}
-
-                <p className="productlabel text-center text-[#A7A7A7]">
-                  Upload your profile picture
-                </p>
-              </div>
             </div>
 
             <form
@@ -65,65 +31,26 @@ const CompleteProfile01 = () => {
               className="flex flex-col justify-center gap-[1.5rem]"
             >
               <div className="flex flex-col gap-4">
-                {/* first_name div */}
+                {/* industry div */}
                 <div>
                   <label
                     className="text-[#555151] font-sans text-[1.125rem] font-[700] leading-[1.6875rem] "
-                    htmlFor="first_name"
+                    htmlFor="industry"
                   >
-                    First Name
+                    Industry
                   </label>
-                  <div className="h-[3.5rem] py-4 px-3 rounded-[0.25rem] border-[1px] w-full bg-white">
+                  <div className="flex h-[3.5rem] py-4 px-3 rounded-[0.25rem] border-[1px] w-full bg-white">
                     <input
-                      type="first_name"
-                      id="first_name"
-                      name="first_name"
-                      //   value={formData.first_name}
-                      //   onChange={handleChange}
-                    />
-                  </div>
-
-                  {/* {errors.email && <p style={{ color: "red" }}>{errors.email}</p>} */}
-                </div>
-
-                {/* last_name div */}
-                <div>
-                  <label
-                    className="text-[#555151] font-sans text-[1.125rem] font-[700] leading-[1.6875rem] "
-                    htmlFor="last_name"
-                  >
-                    Last Name
-                  </label>
-                  <div className="h-[3.5rem] py-4 px-3 rounded-[0.25rem] border-[1px] w-full bg-white">
-                    <input
-                      type="last_name"
-                      id="last_name"
-                      name="last_name"
-                      //   value={formData.last_name}
-                      //   onChange={handleChange}
-                    />
-                  </div>
-                  {/* {errors.email && <p style={{ color: "red" }}>{errors.email}</p>} */}
-                </div>
-
-                {/* business_name div */}
-                <div>
-                  <label
-                    className="text-[#555151] font-sans text-[1.125rem] font-[700] leading-[1.6875rem] "
-                    htmlFor="business_name"
-                  >
-                    Business Name
-                  </label>
-                  <div className=" h-[3.5rem] py-4 px-3 rounded-[0.25rem] border-[1px] w-full bg-white">
-                    <input
-                      type="business_name"
-                      id="business_name"
-                      name="business_name"
-                      placeholder="Enter your business name"
+                      type="industry"
+                      id="industry"
+                      name="industry"
+                      placeholder="Selet your industry"
                       className="w-[90%]"
-                      //   value={formData.business_name}
+                      //   value={formData.industry}
                       //   onChange={handleChange}
                     />
+
+                    <img src="/images/icons/Arrows.svg" alt="arrows" />
                   </div>
                   {/* {errors.email && <p style={{ color: "red" }}>{errors.email}</p>} */}
                 </div>
@@ -148,6 +75,52 @@ const CompleteProfile01 = () => {
                     />
 
                     <img src="/images/icons/Arrows.svg" alt="arrows" />
+                  </div>
+                  {/* {errors.email && <p style={{ color: "red" }}>{errors.email}</p>} */}
+                </div>
+
+                {/* country_name div */}
+                <div>
+                  <label
+                    className="text-[#555151] font-sans text-[1.125rem] font-[700] leading-[1.6875rem] "
+                    htmlFor="country_name"
+                  >
+                    Country
+                  </label>
+                  <div className="flex h-[3.5rem] py-4 px-3 rounded-[0.25rem] border-[1px] w-full bg-white">
+                    <input
+                      type="country_name"
+                      id="country_name"
+                      name="country_name"
+                      placeholder="Country of residence"
+                      className="w-[90%]"
+                      //   value={formData.country_name}
+                      //   onChange={handleChange}
+                    />
+
+                    <img src="/images/icons/Arrows.svg" alt="arrows" />
+                  </div>
+                  {/* {errors.email && <p style={{ color: "red" }}>{errors.email}</p>} */}
+                </div>
+
+                {/* primary_business_goals div */}
+                <div>
+                  <label
+                    className="text-[#555151] font-sans text-[1.125rem] font-[700] leading-[1.6875rem] "
+                    htmlFor="primary_business_goals"
+                  >
+                    Last Name
+                  </label>
+                  <div className="flex h-[13.6875rem] py-4 px-3 rounded-[0.25rem] border-[1px] border-[#7E7C7C] w-full bg-white">
+                    <textarea
+                      type="primary_business_goals"
+                      id="primary_business_goals"
+                      name="primary_business_goals"
+                      className="w-full h-full"
+                      placeholder="What are your main business objectives for the next 6-12 months?"
+                      //   value={formData.primary_business_goals}
+                      //   onChange={handleChange}
+                    />
                   </div>
                   {/* {errors.email && <p style={{ color: "red" }}>{errors.email}</p>} */}
                 </div>
@@ -183,4 +156,4 @@ const CompleteProfile01 = () => {
   );
 };
 
-export default CompleteProfile01;
+export default CompleteProfile02;

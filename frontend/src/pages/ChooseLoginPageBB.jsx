@@ -1,10 +1,56 @@
-// import React from 'react'
-// import SocialButton from "../components/SocialButtonBB";
+/* eslint-disable no-unused-vars */
 
-import { Link,useNavigate  } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { login, reset, getUserInfo } from "../features/auth/authSlice";
+import { toast } from "react-toastify";
+import Spinner from "../components/Spinner";
+import { BiLogInCircle } from "react-icons/bi";
 
-const CreateAccountPageBB = () => {
+const ChooseLoginBB = () => {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+  const { email, password } = formData;
+
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const userData = {
+      email,
+      password,
+    };
+    dispatch(login(userData));
+  };
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(message);
+    }
+
+    if (isSuccess && user) {
+      navigate("/dashboard");
+    }
+
+    dispatch(reset());
+    dispatch(getUserInfo());
+  }, [isError, isSuccess, user, navigate, dispatch]);
 
   return (
     <>
@@ -27,28 +73,23 @@ const CreateAccountPageBB = () => {
           <div className="flex flex-col px-[0.5rem] py-[2.25rem] justify-center items-center gap-[0.5rem] self-stretch">
             <div>
               <p className="text-[#1E1E1E] text-center font-sans text-[1.625rem] font-bold leading-[2.4375rem]">
-                Create an Account
+                Get Access Here
               </p>
             </div>
             <div>
               <p className="text-[#1E1E1E] text-center font-sans text-[1.125rem] leading-[2.25rem]">
-                Choose your preferred sign up method
+                Choose your preferred sign in method
               </p>
             </div>
             <div className="flex flex-row gap-[0.5rem]">
               <p className="text-[#1E1E1E] text-center font-sans text-[0.75rem] font-bold  leading-[1.125rem]">
-                Do you already have an account?
+                Don&apos;t have an account?
               </p>
-              <a
-                href="#"
-                className="text-[#0033C7] text-center font-sans text-[0.75rem] font-bold  leading-[1.125rem]"
-              ></a>
-
               <Link
-                to="/bb/chooseloginpage"
+                to="/bb/createaccountpage"
                 className="text-[#0033C7] text-center font-sans text-[0.75rem] font-bold  leading-[1.125rem]"
               >
-                Login Here
+                Sign Up Here
               </Link>
             </div>
           </div>
@@ -109,12 +150,12 @@ const CreateAccountPageBB = () => {
           </div>
           <div className="flex flex-col items-center gap-2 w-[21.875rem]">
             <button
-              onClick={() => {navigate("/bb/signuppage");}}
+              onClick={() => navigate("/bb/loginpage")}
               className="flex w-[21.75rem] p-[0.75rem] justify-center items-center gap-4 rounded-md border-[3px] duration-400 ease-in-out font-['Open Sans'] text-lg font-bold leading-[1.6875rem] 
-                        border-[#6E00AD] bg-[#6E00AD] hover:bg-[#3A005C] hover:border-[#3A005C] group"
+                       border-[#6E00AD] bg-[#6E00AD] hover:bg-[#3A005C] hover:border-[#3A005C] group"
             >
               <div className="flex items-center gap-[0.375rem] ">
-                <p className=" text-white">Sign Up with Email</p>
+                <p className=" text-white">Login with Email</p>
               </div>
             </button>
             <p className="w-[21.75rem] text-center text-black_bb">
@@ -129,4 +170,4 @@ const CreateAccountPageBB = () => {
   );
 };
 
-export default CreateAccountPageBB;
+export default ChooseLoginBB;

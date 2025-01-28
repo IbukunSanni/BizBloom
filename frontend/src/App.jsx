@@ -12,11 +12,18 @@ import ResetPasswordPage from "./pages/ResetPasswordPage.jsx";
 import ResetPasswordConfirmPage from "./pages/ResetPasswordConfirmPage";
 import ActivatePage from "./pages/ActivatePage";
 import NotFoundPage from "./pages/NotFoundPage";
+import TestPage from "./pages/TestPage.jsx";
 // BB focus
 import LandingPageBB from "./pages/LandingPageBB.jsx";
 import CreateAccountBB from "./pages/CreateAccountPageBB.jsx";
 import WelcomeAboardPage from "./pages/WelcomeAboardPageBB.jsx";
 import CompleteProfile01 from "./pages/CompleteProfile01BB.jsx";
+import CompleteProfile02 from "./pages/CompleteProfile02BB.jsx";
+import CompleteProfile03 from "./pages/CompleteProfile03BB.jsx";
+import CompleteProfile04 from "./pages/CompleteProfile04BB.jsx";
+import ChooseLoginBB from "./pages/ChooseLoginPageBB.jsx";
+import DashboardPageBB from "./pages/DashboardPageBB.jsx";
+import LoginPageBB from "./pages/LoginPageBB.jsx";
 import SignUpPageBB from "./pages/SignUpPageBB.jsx";
 import HeaderBB from "./components/HeaderBB.jsx";
 import FooterBB from "./components/FooterBB.jsx";
@@ -24,7 +31,7 @@ import FooterBB from "./components/FooterBB.jsx";
 function App() {
   return (
     <>
-      <main className="bg-neutral-50 min-h-screen">
+      <main className="">
         <Router>
           {/* <HeaderBB /> */}
           <Routes>
@@ -41,7 +48,7 @@ function App() {
             <Route path="*" element={<NotFoundPage />} />
             {/* BizBloom focus */}
             <Route
-              path="/bb/landingpage"
+              path="/bb/"
               element={
                 <>
                   <HeaderBB />
@@ -83,6 +90,70 @@ function App() {
               element={
                 <>
                   <CompleteProfile01 />
+                </>
+              }
+            />
+
+            <Route
+              path="/bb/completeprofile-02"
+              element={
+                <>
+                  <CompleteProfile02 />
+                </>
+              }
+            />
+
+            <Route
+              path="/bb/completeprofile-03"
+              element={
+                <>
+                  <CompleteProfile03 />
+                </>
+              }
+            />
+
+            <Route
+              path="/bb/completeprofile-04"
+              element={
+                <>
+                  <CompleteProfile04 />
+                </>
+              }
+            />
+            {/* Choose Login Page */}
+            <Route
+              path="/bb/chooseloginpage"
+              element={
+                <>
+                  <ChooseLoginBB />
+                </>
+              }
+            />
+            {/* Login Page */}
+            <Route
+              path="/bb/loginpage"
+              element={
+                <>
+                  <LoginPageBB />
+                </>
+              }
+            />
+
+            {/* TODO: Clear Test Page */}
+            <Route
+              path="/testpage"
+              element={
+                <>
+                  <TestPage />
+                </>
+              }
+            />
+
+            <Route
+              path="/bb/dashboardpage"
+              element={
+                <>
+                  <DashboardPageBB />
                 </>
               }
             />

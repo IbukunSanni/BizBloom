@@ -1,10 +1,77 @@
+/* eslint-disable no-unused-vars */
 import Button from "../components/buttonBB";
-
-// import curly_woman from "../assets/images/woman-with-curly-hair-smiling_1.png";
+import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 
 const LandingPageBB = () => {
+  const navigate = useNavigate();
+  const [showOptions, setShowOptions] = useState(false);
+
   return (
     <>
+      {/* Auth Modal  */}
+      {/* Grey Background */}
+      {showOptions && (
+        <>
+          {/* Modal Overlay  */}
+          <div className="fixed inset-0 bg-gray-600 bg-opacity-50 transition-opacity flex items-center justify-center z-50">
+            {/* Modal Content  */}
+            <div className="bg-white rounded-xl shadow-lg p-6 w-[80%] max-w-md mx-4 relative">
+              {/* Close button */}
+              <button
+                onClick={() => {
+                  setShowOptions(false);
+                }}
+                className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+              >
+                ✕
+              </button>
+
+              <div className="py-2 flex flex-col gap-2">
+                {/* Title  */}
+                <div className="flex gap-4">
+                  <img src="/images/icons/WeddingGift.png" className="w-[1.5rem] aspect-auto" alt="wedding_gift" />
+                  <p className="productbody text-[#1E1E1E] ">
+                    Your Journey to Growth
+                  </p>
+                </div>
+
+                <div className="pt-4 space-y-4">
+                  {/* Login button  */}
+                  <button
+                    className="w-full border-[3px] text-white bg-[#6E00AD] border-[#6E00AD] hover:bg-[#3A005C] hover:border-[#3A005C] py-4 px-6 rounded-lg transition-colors duration-200"
+                    onClick={() => navigate("/bb/chooseloginpage")}
+                  >
+                    Login to Continue
+                  </button>
+
+                  <div className="flex items-center w-[50%]">
+                    <div className="flex-grow h-px bg-gray-300"></div>
+                    <span className="px-4 text-gray-500 text-[0.9rem]">OR</span>
+                    <div className="flex-grow h-px bg-gray-300"></div>
+                  </div>
+                  {/* Sign Up button  */}
+                  <button
+                    className="w-full border-[3px] duration-400 border-[#6E00AD] text-[#6E00AD]  hover:text-white hover:bg-[#3A005C] hover:border-[#3A005C] py-4 px-6 rounded-lg transition-colors duration-200"
+                    onClick={() => navigate("/bb/createaccountpage")}
+                  >
+                    Sign Up Now
+                  </button>
+
+                  {/* Go Back button - to exit  */}
+                  <button
+                    onClick={() => setShowOptions(false)}
+                    className="w-full text-sm text-gray-500 hover:text-gray-700 py-2 transition-colors duration-200"
+                  >
+                    Go Back
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+
       {/* Main Content */}
       <div className="box-border">
         <section className="bg-gray-100 flex flex-col justify-center gap-[1rem] items-center w-[25.75rem] pt-[2.25rem] pr-[1.5rem] pb-[1.5rem] pl-[1.5rem]">
@@ -23,8 +90,12 @@ const LandingPageBB = () => {
           </div>
           <div>
             <div className="flex gap-[1.5rem]">
-              <Button variant="purple_alt" label="Sign Up" />
-              <Button variant="purple_enabled" label="Login" />
+              <Button
+                variant="purple_alt"
+                label="Get Started"
+                onClick={() => setShowOptions(true)}
+              />
+              <Button variant="purple_enabled" label="Take a Tour" />
             </div>
           </div>
         </section>
@@ -104,8 +175,8 @@ const LandingPageBB = () => {
               </div>
             </div>
             <div className="max-w-[375px] mx-auto">
-                <Button variant="blue_enabled" label="Check out Business Tools" />
-              </div>
+              <Button variant="blue_enabled" label="Check out Business Tools" />
+            </div>
           </div>
         </section>
 

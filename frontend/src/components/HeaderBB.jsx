@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
 import { Link } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
+
+
 const HeaderBB = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef(null);
@@ -47,11 +49,11 @@ const HeaderBB = () => {
           />
           <button
             onClick={toggleMenu}
-            className="block lg:hidden focus:outline-none"
+            className="block focus:outline-none"
           >
             <img
               src="\images\Menu.png"
-              alt="BizBloom Logo"
+              alt="Hamburger Menu"
               className="flex w-[1.5rem] h-[1.5rem] shrink-0"
             />
           </button>
@@ -63,31 +65,37 @@ const HeaderBB = () => {
             >
               <div className="flex flex-col items-start p-[0.25rem] g-[1rem] flex-shrink-0 w-[6.375rem]">
                 <Link
-                  to="/bb"
+                  to="#"
+                  onClick={(e) => {
+                    e.preventDefault(); // Prevent React Router from intercepting
+                    window.location.reload(); // Reload the page
+                    setIsMenuOpen(false)
+                  }}
                   className="text-[#1E1E1E] font-sans text-lg font-normal leading-relaxed hover:text-blue-300"
                 >
                   Home
                 </Link>
                 <Link
-                  to="/bb"
+                  to="/bb/"
+                  replace
                   className="text-[#1E1E1E] font-sans text-lg font-normal leading-relaxed hover:text-blue-300"
                 >
                   Features
                 </Link>
                 <Link
-                  to="/bb"
+                  to="/bb/"
                   className="text-[#1E1E1E] font-sans text-lg font-normal leading-relaxed hover:text-blue-300"
                 >
                   About
                 </Link>
                 <Link
-                  to="/login"
+                  to="/bb/chooseloginpage"
                   className="text-[#1E1E1E] font-sans text-lg font-normal leading-relaxed hover:text-blue-300"
                 >
                   Login
                 </Link>
                 <Link
-                  to="/bb"
+                  to="/bb/createaccountpage"
                   className="text-[#1E1E1E] font-sans text-lg font-normal leading-relaxed hover:text-blue-300"
                 >
                   Signup
