@@ -21,6 +21,7 @@ import CompleteProfile01 from "./pages/CompleteProfile01BB.jsx";
 import CompleteProfile02 from "./pages/CompleteProfile02BB.jsx";
 import CompleteProfile03 from "./pages/CompleteProfile03BB.jsx";
 import CompleteProfile04 from "./pages/CompleteProfile04BB.jsx";
+import CompleteProfile05 from "./pages/CompleteProfile05BB.jsx";
 import ChooseLoginBB from "./pages/ChooseLoginPageBB.jsx";
 import DashboardPageBB from "./pages/DashboardPageBB.jsx";
 import LoginPageBB from "./pages/LoginPageBB.jsx";
@@ -117,6 +118,15 @@ function App() {
               element={
                 <>
                   <CompleteProfile04 />
+                </>
+              }
+            />
+
+            <Route
+              path="/bb/completeprofile-05"
+              element={
+                <>
+                  <CompleteProfile05 />
                 </>
               }
             />

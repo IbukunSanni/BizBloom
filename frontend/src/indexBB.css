@@ -11,7 +11,8 @@
   /* border: 1px solid black; */
   /* align-items: center; */
   /* @apply max-w-[26px] min-h-screen flex items-center justify-center m-auto */
-  @apply items-center max-w-[26rem] mx-auto
+  /* @apply items-center max-w-[26rem] mx-auto */
+  @apply max-w-[26rem] mx-auto
 }
 
 html {

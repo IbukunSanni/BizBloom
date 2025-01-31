@@ -64,11 +64,13 @@ const ChooseLoginBB = () => {
           />
 
           {/* Back arrow*/}
-          <img
-            src="/images/arrows/Back_to.png"
-            alt="back_to"
-            className="flex w -[2.5rem] aspect-square  justify-center items-center shrink-0"
-          />
+          <button onClick={() => navigate("/bb/")}>
+            <img
+              src="/images/arrows/Back_to.png"
+              alt="back_to"
+              className="flex w -[2.5rem] aspect-square  justify-center items-center shrink-0"
+            />
+          </button>
 
           <div className="flex flex-col px-[0.5rem] py-[2.25rem] justify-center items-center gap-[0.5rem] self-stretch">
             <div>

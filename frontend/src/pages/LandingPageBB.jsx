@@ -10,7 +10,6 @@ const LandingPageBB = () => {
   return (
     <>
       {/* Auth Modal  */}
-      {/* Grey Background */}
       {showOptions && (
         <>
           {/* Modal Overlay  */}

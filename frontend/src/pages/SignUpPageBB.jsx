@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { register, reset } from "../features/auth/authSlice";
 import CompleteProfile01 from "./CompleteProfile01BB";
 import Spinner from "../components/Spinner";
+
 const SignUpPageBB = () => {
   const PASSWORD_LENGTH = 8;
 
@@ -86,6 +87,14 @@ const SignUpPageBB = () => {
     dispatch(reset());
   }, [isError, isSuccess, user, navigate, dispatch]);
 
+  // Check if all fields are filled
+  const isFormComplete =
+    first_name.trim() &&
+    last_name.trim() &&
+    email.trim() &&
+    password.trim() &&
+    re_password.trim();
+
   return (
     <>
       <div className="flex pt=[1.5rem] flex-col items-center self-stretch py-6">
@@ -97,7 +106,7 @@ const SignUpPageBB = () => {
               className="flex w-[13.75rem] h-[3.6875rem] justify-center items-center shrink-0"
             />
 
-            <button onClick={() => navigate("/bb/")}>
+            <button onClick={() => navigate("/bb/createaccountpage")}>
               <img
                 src="/images/arrows/Back_to.png"
                 alt="back_to"
@@ -117,7 +126,7 @@ const SignUpPageBB = () => {
               <div>
                 <label
                   htmlFor="first_name"
-                  className="block text-sm font-medium text-gray-700 mb-1"
+                  className="text-[#555151] font-sans text-[1.125rem] font-[700] leading-[1.6875rem]"
                 >
                   First Name
                 </label>
@@ -139,7 +148,7 @@ const SignUpPageBB = () => {
               <div>
                 <label
                   htmlFor="last_name"
-                  className="block text-sm font-medium text-gray-700 mb-1"
+                  className="text-[#555151] font-sans text-[1.125rem] font-[700] leading-[1.6875rem]"
                 >
                   Last Name
                 </label>
@@ -161,7 +170,7 @@ const SignUpPageBB = () => {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-gray-700 mb-1"
+                  className="text-[#555151] font-sans text-[1.125rem] font-[700] leading-[1.6875rem]"
                 >
                   Email
                 </label>
@@ -183,7 +192,7 @@ const SignUpPageBB = () => {
               <div>
                 <label
                   htmlFor="password"
-                  className="block text-sm font-medium text-gray-700 mb-1"
+                  className="text-[#555151] font-sans text-[1.125rem] font-[700] leading-[1.6875rem]"
                 >
                   Password
                 </label>
@@ -224,7 +233,7 @@ const SignUpPageBB = () => {
               <div>
                 <label
                   htmlFor="re_password"
-                  className="block text-sm font-medium text-gray-700 mb-1"
+                  className="text-[#555151] font-sans text-[1.125rem] font-[700] leading-[1.6875rem]"
                 >
                   Confirm Password
                 </label>
@@ -265,22 +274,24 @@ const SignUpPageBB = () => {
               <button
                 type="submit"
                 onClick={handleSubmit}
-                className="flex w-[21.5rem] p-[0.75rem] justify-center items-center gap-4 rounded-md border-[3px] duration-400 ease-in-out font-['Open Sans'] text-lg font-bold leading-[1.6875rem] 
-                             border-[#6E00AD] bg-[#6E00AD] hover:bg-[#3A005C] hover:border-[#3A005C] group"
+                disabled={!isFormComplete}
+                className={`flex w-[21.5rem] p-[0.75rem] justify-center items-center gap-4 rounded-md border-[3px] duration-400 ease-in-out font-['Open Sans'] text-lg font-bold leading-[1.6875rem] 
+                            group${
+                              isFormComplete ? " border-[#6E00AD] bg-[#6E00AD] hover:bg-[#3A005C] hover:border-[#3A005C] text-white ":" border-[#A7A7A7] bg-[#A7A7A7] text-[#7E7C7C]"
+                             }`}
               >
-                <div className="flex items-center gap-[0.375rem] ">
-                  <p className=" text-white">Sign Up</p>
-                </div>
+                Sign Up
               </button>
 
               <div className="flex gap-[0.5rem] px-1 justify-center items-center h-full ">
                 <p className="text-[#1E1E1E] text-center font-sans text-[0.75rem] font-bold  leading-[1.125rem]">
-                  Already have an account? 
+                  Already have an account?
                   <span className="tracking-widest"> </span>
                   <span
                     onClick={() => navigate("/bb/chooseloginpage")}
                     className="text-[#0033C7] text-center font-sans text-[0.75rem] font-bold  leading-[1.125rem] cursor-pointer"
-                  >Login
+                  >
+                    Login
                   </span>
                 </p>
               </div>

@@ -1,7 +1,7 @@
 // import React from 'react'
 // import SocialButton from "../components/SocialButtonBB";
 
-import { Link,useNavigate  } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const CreateAccountPageBB = () => {
   const navigate = useNavigate();
@@ -18,11 +18,13 @@ const CreateAccountPageBB = () => {
           />
 
           {/* Back arrow*/}
-          <img
-            src="/images/arrows/Back_to.png"
-            alt="back_to"
-            className="flex w -[2.5rem] aspect-square  justify-center items-center shrink-0"
-          />
+          <button onClick={() => navigate("/bb/")}>
+            <img
+              src="/images/arrows/Back_to.png"
+              alt="back_to"
+              className="flex w -[2.5rem] aspect-square  justify-center items-center shrink-0"
+            />
+          </button>
 
           <div className="flex flex-col px-[0.5rem] py-[2.25rem] justify-center items-center gap-[0.5rem] self-stretch">
             <div>
@@ -109,7 +111,9 @@ const CreateAccountPageBB = () => {
           </div>
           <div className="flex flex-col items-center gap-2 w-[21.875rem]">
             <button
-              onClick={() => {navigate("/bb/signuppage");}}
+              onClick={() => {
+                navigate("/bb/signuppage");
+              }}
               className="flex w-[21.75rem] p-[0.75rem] justify-center items-center gap-4 rounded-md border-[3px] duration-400 ease-in-out font-['Open Sans'] text-lg font-bold leading-[1.6875rem] 
                         border-[#6E00AD] bg-[#6E00AD] hover:bg-[#3A005C] hover:border-[#3A005C] group"
             >

@@ -1,4 +1,7 @@
+
+import { useNavigate } from "react-router-dom";
 const WelcomeAboardPage = () => {
+  const navigate = useNavigate();
   return (
     <>
       <div className="h-[57.3125rem] flex flex-col gap-[0.5rem]  pt-[1.5rem] pb-12 items-center shrink-0 self-stretch">
@@ -78,15 +81,16 @@ const WelcomeAboardPage = () => {
           <br className="my-4" />
           <div className="flex flex-col items-center gap-2 w-[21.875rem]">
             <button
+              onClick={() => navigate("/bb/dashboardpage")}
               className="flex w-[21.75rem] p-[0.75rem] justify-center items-center gap-4 rounded-md border-[3px] duration-400 ease-in-out font-['Open Sans'] text-lg font-bold leading-[1.6875rem] 
-          border-[#6E00AD] bg-[#6E00AD] hover:bg-[#3A005C] hover:border-[#3A005C] group"
+              border-[#6E00AD] bg-[#6E00AD] hover:bg-[#3A005C] hover:border-[#3A005C] group"
             >
               <div className="flex items-center gap-[0.375rem] ">
                 <p className=" text-white">Get Started</p>
               </div>
             </button>
 
-            <br/>
+            <br />
           </div>
         </div>
       </div>
