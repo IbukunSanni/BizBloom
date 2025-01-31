@@ -57,7 +57,7 @@ const DashboardPageBB = () => {
   const user = {
     firstname: "Julia",
     lastname: "Rowland",
-    email: "julia.rowland@gmail.com",
+    email: "julia.rowland@hotmail.com",
     avatar: "/images/profiles/julia.png",
     plan: "Free Trial",
   };
@@ -151,7 +151,7 @@ const DashboardPageBB = () => {
                   <button
                     className="w-full border-[3px] text-white bg-[#6E00AD] border-[#6E00AD] hover:bg-[#3A005C] hover:border-[#3A005C] py-2 px-6 rounded-lg transition-colors duration-200"
                     onClick={() => {
-                      navigate("/bb/chooseloginpage");
+                      navigate("/bb/");
                       toast.success("You have logged out");
                     }}
                   >
