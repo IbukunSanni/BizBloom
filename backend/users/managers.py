@@ -15,7 +15,7 @@ class CustomUserManager(BaseUserManager):
         except ValidationError:
             raise ValueError(_("You must provide a valid email"))
 
-    def create_user(self, first_name, last_name, email, password, **extra_fields):
+    def create_user(self, first_name, last_name, email, password, role, **extra_fields):
         if not first_name:
             raise ValueError(_("Users must submit a first name"))
 
@@ -26,7 +26,10 @@ class CustomUserManager(BaseUserManager):
             email = self.normalize_email(email)
             self.email_validator(email)
         else:
-            raise ValueError(_("Base User: valid email address is required"))
+            raise ValueError(_("Valid email address is required"))
+
+        if role not in ["mentor", "mentee"]:
+            raise ValueError(_("Role must be either 'mentor' or 'mentee'."))
 
         user = self.model(
             first_name=first_name, last_name=last_name, email=email, **extra_fields
@@ -38,6 +41,7 @@ class CustomUserManager(BaseUserManager):
 
         try:
             user.save()
+            logger.info(f"User {user.email} created successfully as a {role}.")
         except Exception as e:
             logger.error(f"Failed to save user: {e}")
 
@@ -64,12 +68,19 @@ class CustomUserManager(BaseUserManager):
         else:
             raise ValueError(_("Admin User: valid email address is required"))
 
-        user = self.create_user(first_name, last_name, email, password, **extra_fields)
+        # Ensure superusers **do not** have a mentor or mentee role
+        extra_fields.pop("role", None)
 
-        # TODO: check if it is unnecessary, self.create already saves the user
-        # try:
-        #     user.save()
-        # except Exception as e:
-        #     logger.error(f"Failed to save user: {e}")
+        user = self.model(
+            first_name=first_name, last_name=last_name, email=email, **extra_fields
+        )
+        user.set_password(password)
+
+        try:
+            user.save()
+            logger.info(f"Superuser {user.email} created successfully.")
+        except Exception as e:
+            logger.error(f"Failed to save superuser {email}: {e}")
+            raise ValueError(_("Failed to create superuser."))
 
         return user

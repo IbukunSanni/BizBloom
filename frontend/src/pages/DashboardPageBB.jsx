@@ -350,11 +350,21 @@ const DashboardPageBB = () => {
           isMenuOpen ? "z-40 opacity-50" : "z-50 opacity-100"
         }`}
       >
-        <button className="flex flex-col items-center text-purple-600 ">
+        <button
+          onClick={() => {
+            navigate("/bb/dashboardpage");
+          }}
+          className="flex flex-col items-center text-purple-600 "
+        >
           <FaHome className="text-xl" />
           <span className="text-xs">Home</span>
         </button>
-        <button className="flex flex-col items-center text-gray-400 hover:text-gray-600 active:text-gray-800">
+        <button
+          onClick={() => {
+            navigate("/bb/mentorshipsearchpage");
+          }}
+          className="flex flex-col items-center text-gray-400 hover:text-gray-600 active:text-gray-800"
+        >
           <FaUsers className="text-xl" />
           <span className="text-xs">Mentors</span>
         </button>

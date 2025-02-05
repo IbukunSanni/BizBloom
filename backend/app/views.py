@@ -3,6 +3,7 @@ from django.db import connection
 from django.shortcuts import render
 import logging
 
+
 logger = logging.getLogger(__name__)
 
 

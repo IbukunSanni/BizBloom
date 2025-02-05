@@ -25,7 +25,8 @@ const LoginPageBB = () => {
   const handleChange = (e) => {
     setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value,
+      // TODO: check that email lowercase works
+      [e.target.name]: e.target.name === "email" ? e.target.value.toLowerCase(): e.target.value,
     }));
   };
 

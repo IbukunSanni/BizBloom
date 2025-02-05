@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.utils.translation import gettext_lazy as _
 from .forms import CustomUserChangeForm, CustomUserCreationForm
-from .models import User
+from .models import User, Mentor, Mentee, Industry, Education, Approach, Offer
 
 # Register your models here.
 
@@ -77,6 +77,66 @@ class UserAdmin(BaseUserAdmin):
     )
 
 
+# ✅ Mentor Admin
+class MentorAdmin(admin.ModelAdmin):
+    list_display = [
+        "user",
+        "country",
+        "years_of_experience",
+        "job_title",
+        "company",
+        "asap_availability",
+    ]
+    list_filter = ["country", "years_of_experience", "asap_availability"]
+    search_fields = [
+        "user__email",
+        "user__first_name",
+        "user__last_name",
+        "job_title",
+        "company",
+    ]
+
+
+# ✅ Mentee Admin
+class MenteeAdmin(admin.ModelAdmin):
+    list_display = ["user", "payment_plan"]
+    list_filter = ["payment_plan"]
+    search_fields = ["user__email", "user__first_name", "user__last_name"]
+
+
+# ✅ Industry Admin
+class IndustryAdmin(admin.ModelAdmin):
+    list_display = ["name"]
+    search_fields = ["name"]
+
+
+# ✅ Education Admin
+class EducationAdmin(admin.ModelAdmin):
+    list_display = ["name"]
+    search_fields = ["name"]
+
+
+# ✅ Approach Admin
+class ApproachAdmin(admin.ModelAdmin):
+    list_display = ["name"]
+    search_fields = ["name"]
+
+
+# ✅ Offer Admin
+class OfferAdmin(admin.ModelAdmin):
+    list_display = ["name"]
+    search_fields = ["name"]
+
+
+# Register models
+
+
 # Registers the custom UserAdmin class with the User model,
 # replacing the default admin configuration for users.
 admin.site.register(User, UserAdmin)
+admin.site.register(Mentor, MentorAdmin)
+admin.site.register(Mentee, MenteeAdmin)
+admin.site.register(Industry, IndustryAdmin)
+admin.site.register(Education, EducationAdmin)
+admin.site.register(Approach, ApproachAdmin)
+admin.site.register(Offer, OfferAdmin)

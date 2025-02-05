@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     "djoser",
     "rest_framework",
     "rest_framework_simplejwt",
+    "django_filters",
     # Internal apps
     "users",
 ]
@@ -178,6 +179,8 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
+    "DEFAULT_FILTER_BACKENDS": ["django_filters.rest_framework.DjangoFilterBackend"],
+    "PAGE_SIZE": 5,  # Load 5 mentors per request
 }
 
 SIMPLE_JWT = {
@@ -219,3 +222,7 @@ EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = "info@bizbloom.com"
 DOMAIN = env("DOMAIN")
 SITE_NAME = "BizBloom"
+
+# Media file settings
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")

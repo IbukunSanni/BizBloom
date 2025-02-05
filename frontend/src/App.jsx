@@ -26,8 +26,12 @@ import ChooseLoginBB from "./pages/ChooseLoginPageBB.jsx";
 import DashboardPageBB from "./pages/DashboardPageBB.jsx";
 import LoginPageBB from "./pages/LoginPageBB.jsx";
 import SignUpPageBB from "./pages/SignUpPageBB.jsx";
+import MentorSearchPageBB from "./pages/MentorSearchPageBB.jsx";
+import TempPage from "./pages/TempPage.jsx";
+// BB components
 import HeaderBB from "./components/HeaderBB.jsx";
 import FooterBB from "./components/FooterBB.jsx";
+import MentorProfile from "./pages/MentorProfile.jsx";
 
 function App() {
   return (
@@ -164,6 +168,33 @@ function App() {
               element={
                 <>
                   <DashboardPageBB />
+                </>
+              }
+            />
+
+            <Route
+              path="/bb/mentorshipsearchpage"
+              element={
+                <>
+                  <MentorSearchPageBB />
+                </>
+              }
+            />
+
+            <Route
+              path="/bb/mentors/:mentorId"
+              element={
+                <>
+                  <MentorProfile />
+                </>
+              }
+            />
+
+            <Route
+              path="/temppage/:mentorId"
+              element={
+                <>
+                  <TempPage />
                 </>
               }
             />
