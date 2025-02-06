@@ -256,22 +256,27 @@ const DashboardPageBB = () => {
 
       {/* Options */}
       <div className="flex flex-col w-full gap-2 pt-2">
-        <button className="bg-[#F8F8F8] hover:bg-gray-200 border border-gray-300  h-24 w-full rounded-2xl  flex flex-col items-center justify-center text-[#555151] font-bold">
-          <MdOutlinePeopleAlt className="text-2xl" />
+        <button
+          className="group bg-[#F8F8F8] hover:bg-gray-200 border border-gray-300  h-24 w-full rounded-2xl  flex flex-col items-center justify-center text-[#555151] font-bold hover:text-purple-600"
+          onClick={() => {
+            navigate("/bb/mentorshipsearchpage");
+          }}
+        >
+          <MdOutlinePeopleAlt className="text-2xl group-hover:text-purple-600" />
           Find Mentors
         </button>
         <div className="flex flex-row w-full gap-2 ">
-          <button className="bg-[#F8F8F8] hover:bg-gray-200 border border-gray-300 h-full w-full rounded-2xl flex flex-col items-center justify-center text-[#555151] font-bold">
-            <HiOutlineDocument className="text-2xl" />
+          <button className=" group hover:text-purple-600 bg-[#F8F8F8] hover:bg-gray-200 border border-gray-300 h-full w-full rounded-2xl flex flex-col items-center justify-center text-[#555151] font-bold">
+            <HiOutlineDocument className="text-2xl group-hover:text-purple-600" />
             Resources
           </button>
           <div className="flex flex-col w-full gap-2 ">
-            <button className="bg-[#F8F8F8] hover:bg-gray-200 border border-gray-300 h-24 w-full rounded-2xl flex flex-col items-center justify-center text-[#555151] font-bold">
-              <MdOutlineVideocam className="text-2xl" />
+            <button className="group hover:text-purple-600 bg-[#F8F8F8] hover:bg-gray-200 border border-gray-300 h-24 w-full rounded-2xl flex flex-col items-center justify-center text-[#555151] font-bold">
+              <MdOutlineVideocam className="text-2xl group-hover:text-purple-600" />
               Take a Tour
             </button>
-            <button className="bg-[#F8F8F8] hover:bg-gray-200 border border-gray-300 h-24 w-full rounded-2xl flex flex-col items-center justify-center text-[#555151] font-bold">
-              <TbTargetArrow className="text-2xl" />
+            <button className="group hover:text-purple-600 bg-[#F8F8F8] hover:bg-gray-200 border border-gray-300 h-24 w-full rounded-2xl flex flex-col items-center justify-center text-[#555151] font-bold">
+              <TbTargetArrow className="text-2xl group-hover:text-purple-600" />
               Set Goals
             </button>
           </div>
@@ -292,7 +297,7 @@ const DashboardPageBB = () => {
               <img
                 src={session.avatar}
                 alt="Mentor Avatar"
-                className="w-[6.25rem] h-[6.25rem] rounded-full mr-3"
+                className="w-[6.25rem] h-[6.25rem] object-cover rounded-full mr-3"
               />
               {/* General Info */}
               <div className="flex-grow">

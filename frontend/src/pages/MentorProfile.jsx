@@ -298,10 +298,10 @@ const MentorProfile = () => {
           <p className="text-red-500">{error}</p>
         ) : mentor ? (
           <>
-            {/* TODO: Fill all the mentor info here */}
+            {/* Mentor Full details below */}
             <div className="w-full px-4 flex flex-col items-center">
               {/* Profile image  */}
-              <div className=" w-[20rem] h-[20rem] mt-4 px-[0.5rem] py-[0.625rem] overflow-hidden ">
+              <div className=" relative flex w-[20rem] h-[20rem] mt-4 px-[0.5rem] py-[0.625rem] overflow-hidden ">
                 {mentor.first_name ? (
                   <>
                     <img
@@ -317,15 +317,15 @@ const MentorProfile = () => {
                 ) : (
                   <FaUserCircle className="w-full h-full text-gray-500" />
                 )}
-              </div>
 
-              {/* Availability Badge */}
-              {mentor.asap_availability && (
-                <div className="flex items-center bg-green-100 text-green-700 px-3 py-1 mt-3 rounded-full w-fit">
-                  <FiZap className="mr-2" />
-                  Available ASAP
-                </div>
-              )}
+                {/* Availability Badge */}
+                {mentor.asap_availability && (
+                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2  flex items-center bg-green-100 text-green-700 px-3 py-1 mt-3 rounded-full w-fit">
+                    <FiZap className="mr-2" />
+                    Available ASAP
+                  </div>
+                )}
+              </div>
 
               {/* Mentor Details */}
               <div className="flex flex-col">
